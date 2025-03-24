@@ -5,7 +5,7 @@ class AlunoController {
         this.service = service
     }
     add(aluno) {
-        this.service.add(new AlnunoModel(aluno))
+        this.service.add(new AlunoModel(aluno))
         this.view.render(this.service.alunos)
     }
 }

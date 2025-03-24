@@ -4,14 +4,17 @@ class AlunoView {
         this.tableHeader = this.tableList.querySelector('thead')
         this.tableBody = this.tableList.querySelector('tbody')
         this.materias = ["backend_1", "frontend_2", "bancodados", "ferramentas"]
+
         this.renderHeader()
     }
     renderHeader() {
         const htmlHeader = document.createElement('tr')
         htmlHeader.innerHTML = '<td>Nome</td>'
+
         const htmlHeaderMaterias = this.materias.map(materia => {
             return `<td>${materia}</td>`
         }).join('')
+
         htmlHeader.innerHTML += htmlHeaderMaterias
         this.tableHeader.appendChild(htmlHeader)
     }
@@ -37,6 +40,12 @@ class AlunoView {
                             `<a href="edit.html?id=${aluno._id}">Incluir Nota</a>`}
                         </td>`
                 })
+            } else {
+                htmlRow.innerHTML +=
+                    `<td 
+                    colspan="${this.materias.length}">
+                        <a href="edit.html?id=${aluno._id}">Incluir Notas</a>
+                    </td>`
             }
             this.tableBody.appendChild(htmlRow)
         })
