@@ -15,8 +15,7 @@ class AlunoView {
         htmlHeader.innerHTML += htmlHeaderMaterias
         this.tableHeader.appendChild(htmlHeader)
     }
-    render() {
-        document.querySelector(`[data-table-alunos] tbody`).innerHTML = ''
+    render(alunos) {
         alunos.forEach(aluno => {
             let htmlRow = document.createElement('tr')
             htmlRow.innerHTML = `<td>${aluno.nome}</td>`
