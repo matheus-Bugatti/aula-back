@@ -20,11 +20,10 @@ class AlunoView {
         alunos.forEach(aluno => {
             let htmlRow = document.createElement('tr')
             htmlRow.innerHTML = `<td>${aluno.nome}</td>`
-            let htmlRowMaterias = Object.keys(aluno.media).map(materia => {
-                return `<td>${aluno.media[materia]}</td>`
-            }).join('')
-            htmlRow.innerHTML += htmlRowMaterias
-            document.querySelector(`[data-table-alunos] tbody`).appendChild(htmlRow)
+            this.materias.forEach(materia => {
+                htmlRow.innerHTML += `<td>${aluno.media[materia]}</td>`
+            })
+            this.tableBody.appendChild(htmlRow)
         })
     }
 }
